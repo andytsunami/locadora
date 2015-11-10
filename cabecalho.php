@@ -26,6 +26,11 @@
 				var table = $("#table").DataTable({
 					"order": [[ 0, "desc" ]]
 				});
+				
+				$(".salvar").click(function(){
+					$("#form").attr("action", $(this).attr("data-target"));
+					$("#form").submit();
+				});
 			});
 			
 		</script>
