@@ -16,11 +16,11 @@
 	
 	if(isset($_POST['cod'])){
 		$cod = $_POST['cod'];
-		$sql = "update cliente set nome = '{$nome}', data_nascimento = '{$dataNascimento}', email = '{$email}' where cod = {$cod}";
+		$sql = "update dependente set nome = '{$nome}', data_nascimento = '{$dataNascimento}', email = '{$email}' where cod = {$cod}";
 		$retorno = "Cadastro alterado com sucesso!";
 		
 	} else {
-		$sql = "INSERT INTO cliente (nome, data_nascimento, email) VALUES ('".$nome."','".$dataNascimento."','".$email."');";
+		$sql = "INSERT INTO dependente (cod_cliente,nome, data_nascimento, email) VALUES ('".$_POST['cod_cliente']."','".$nome."','".$dataNascimento."','".$email."');";
 		$retorno = "Cliente {$nome} cadastrado com sucesso!";
 		
 	}
