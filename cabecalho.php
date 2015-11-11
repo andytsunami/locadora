@@ -14,8 +14,8 @@
 		
 		
 		<!-- Datatable -->
-      	<script type="text/javascript" src="https://cdn.datatables.net/r/dt/dt-1.10.9/datatables.min.js"></script>
-      	<link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/r/dt/dt-1.10.9/datatables.min.css"  media="screen,projection"/>
+      	<script type="text/javascript" src="https://dl.dropboxusercontent.com/u/35720465/locadora/DataTables-1.10.10/media/js/jquery.dataTables.min.js"></script>
+      	<link type="text/css" rel="stylesheet" href="https://dl.dropboxusercontent.com/u/35720465/locadora/DataTables-1.10.10/media/css/jquery.dataTables.min.css"  media="screen,projection"/>
       	
       	<!-- FancyBox -->
 		<link rel="stylesheet" href="https://dl.dropboxusercontent.com/u/35720465/locadora/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
@@ -31,7 +31,30 @@
 		<script type="text/javascript">
 			$(document).ready(function() {
 				var table = $("#table").DataTable({
-					"order": [[ 0, "desc" ]]
+					"order": [[ 0, "desc" ]],
+					language: {
+							    "sEmptyTable": "Nenhum registro encontrado",
+							    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+							    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+							    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+							    "sInfoPostFix": "",
+							    "sInfoThousands": ".",
+							    "sLengthMenu": "Exibir  _MENU_ registros por página",
+							    "sLoadingRecords": "Carregando...",
+							    "sProcessing": "Processando...",
+							    "sZeroRecords": "Nenhum registro encontrado",
+							    "sSearch": "Pesquisar",
+							    "oPaginate": {
+							        "sNext": "Próximo",
+							        "sPrevious": "Anterior",
+							        "sFirst": "Primeiro",
+							        "sLast": "Último"
+							    },
+							    "oAria": {
+							        "sSortAscending": ": Ordenar colunas de forma ascendente",
+							        "sSortDescending": ": Ordenar colunas de forma descendente"
+							    }
+					    }
 				});
 				
 				$("#table tbody").on('click', '.dependentes',function(){
@@ -46,8 +69,9 @@
 						autoSize	: false,
 						closeClick	: false,
 						openEffect	: 'none',
-						closeEffect	: 'none'
-					});
+						closeEffect	: 'none',
+					}	
+					);
 				});
 				
 				$(".salvar").click(function(){
