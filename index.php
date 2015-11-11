@@ -42,6 +42,9 @@ header('Content-Type: text/html; charset=utf-8');
 				Qtd. Dependentes
 			</th>
 			<th>
+				Add Dependente
+			</th>
+			<th>
 				Editar
 			</th>
 			<th>
@@ -68,6 +71,9 @@ header('Content-Type: text/html; charset=utf-8');
 					<td class="dependentes">
 						<?=$result["dependentes"]?>
 					</td>
+					<td class="add">
+						<i class="icon-plus"></i>
+					</td>
 					<td class="adm edit-clie"><i class="icon-edit"></i></td>
 					<td class="adm remove-clie"><i class="icon-remove"></i></td>
 				</tr>
@@ -88,6 +94,9 @@ header('Content-Type: text/html; charset=utf-8');
 			</th>
 			<th>
 				Qtd. Dependentes
+			</th>
+			<th>
+				Add Dependente
 			</th>
 			<th>
 				Editar

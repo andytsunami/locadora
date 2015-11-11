@@ -98,6 +98,26 @@
 					);
 				});
 				
+				$("#table tbody").on('click', '.add',function(){
+					var cliente = $(this).parents("tr").attr("id");
+					$.fancybox.open({
+						href : 'dependente.php?fancy=1&cod_cliente=' + cliente,
+						type: "iframe",
+						padding : 0,
+						fitToView	: false,
+						width		: '80%',
+						height		: '80%',
+						autoSize	: false,
+						closeClick	: false,
+						openEffect	: 'none',
+						closeEffect	: 'none',
+						afterClose : function(){
+							parent.location.reload(true);
+						},
+					}	
+					);
+				});
+				
 				$(".salvar").click(function(){
 					var fancy = $("input[name='fancy']").val();
 					$.ajax({

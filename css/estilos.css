@@ -31,7 +31,7 @@ html, body {
 	color: #FFFFFF;
 }
 
-.dependentes,.adm{
+.dependentes,.adm,.add{
 	cursor: pointer;
 	text-decoration: underline;
 	font-weight: bold;

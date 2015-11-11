@@ -6,9 +6,6 @@
 	$email;
 	
 	$codClie = $_REQUEST['cod_cliente'];
-	
-	
-	//header("Location: listagem.php")
 ?>
 <?php include("cabecalho.php");?>
 
@@ -38,7 +35,13 @@
 		
 		<?php 
 			}
+			if($_GET['fancy']){
 		?>
+			<input type="hidden" value="1" name="fancy" />
+		<?php 
+			}
+		?>
+		
 		<input type="hidden" value="<?=$codClie?>" name="cod_cliente" />
 		<div class="control-group">
 			<label class="control-label" for="name">Nome</label>

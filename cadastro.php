@@ -36,7 +36,7 @@
 			}
 			if($_GET['fancy']){
 		?>
-			<input type="text" value="1" name="fancy" />
+			<input type="hidden" value="1" name="fancy" />
 		<?php 
 			}
 		?>
