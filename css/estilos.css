@@ -31,8 +31,12 @@ html, body {
 	color: #FFFFFF;
 }
 
-.dependentes{
+.dependentes,.adm{
 	cursor: pointer;
+	text-decoration: underline;
+	font-weight: bold;
+	color: blue;
+	text-align: center !important;
 }
 
 @media (max-width: 767px) {

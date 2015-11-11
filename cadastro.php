@@ -11,13 +11,13 @@
 
 	<form class="form-horizontal" id="form" method="post">
 		<?php 
-			if($_GET['cod'] > 0 ){
+			if($_GET['cod_cliente'] > 0 ){
 				require 'config.php';
 				$conexao = @mysql_connect($host, $usuario, $senha) or exit(mysql_error());
 				mysql_set_charset("utf8", $conexao);
 				
 				mysql_select_db($banco);
-				$sql = "SELECT cod,nome,data_nascimento,email FROM cliente WHERE cod = ".$_GET['cod'].";";
+				$sql = "SELECT cod,nome,data_nascimento,email FROM cliente WHERE cod = ".$_GET['cod_cliente'].";";
 				$query = mysql_query($sql, $conexao);
 				
 				$registros = mysql_fetch_array($query); 
@@ -34,7 +34,13 @@
 		
 		<?php 
 			}
+			if($_GET['fancy']){
 		?>
+			<input type="text" value="1" name="fancy" />
+		<?php 
+			}
+		?>
+		
 		<div class="control-group">
 			<label class="control-label" for="name">Nome</label>
 			<div class="controls">

@@ -41,6 +41,12 @@ header('Content-Type: text/html; charset=utf-8');
 			<th>
 				Qtd. Dependentes
 			</th>
+			<th>
+				Editar
+			</th>
+			<th>
+				Excluir
+			</th>
 		</thead>
 		<tbody>
 			<?php if ($registros){
@@ -62,6 +68,8 @@ header('Content-Type: text/html; charset=utf-8');
 					<td class="dependentes">
 						<?=$result["dependentes"]?>
 					</td>
+					<td class="adm edit-clie"><i class="icon-edit"></i></td>
+					<td class="adm remove-clie"><i class="icon-remove"></i></td>
 				</tr>
 			<?php }}?>
 		</tbody>
@@ -80,6 +88,12 @@ header('Content-Type: text/html; charset=utf-8');
 			</th>
 			<th>
 				Qtd. Dependentes
+			</th>
+			<th>
+				Editar
+			</th>
+			<th>
+				Excluir
 			</th>
 		</tfoot>
 	</table>

@@ -14,9 +14,10 @@
 		
 		
 		<!-- Datatable -->
-      	<script type="text/javascript" src="https://dl.dropboxusercontent.com/u/35720465/locadora/DataTables-1.10.10/media/js/jquery.dataTables.min.js"></script>
-      	<link type="text/css" rel="stylesheet" href="https://dl.dropboxusercontent.com/u/35720465/locadora/DataTables-1.10.10/media/css/jquery.dataTables.min.css"  media="screen,projection"/>
-      	
+      	<!-- Datatable -->
+	    <script type="text/javascript" src="https://cdn.datatables.net/r/dt/dt-1.10.9/datatables.min.js"></script>
+	    <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/r/dt/dt-1.10.9/datatables.min.css"  media="screen,projection"/>
+	    
       	<!-- FancyBox -->
 		<link rel="stylesheet" href="https://dl.dropboxusercontent.com/u/35720465/locadora/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
 		<script type="text/javascript" src="https://dl.dropboxusercontent.com/u/35720465/locadora/fancybox/jquery.fancybox.pack.js"></script>
@@ -30,6 +31,7 @@
 		
 		<script type="text/javascript">
 			$(document).ready(function() {
+				
 				var table = $("#table").DataTable({
 					"order": [[ 0, "desc" ]],
 					language: {
@@ -74,10 +76,47 @@
 					);
 				});
 				
-				$(".salvar").click(function(){
-					$("#form").attr("action", $(this).attr("data-target"));
-					$("#form").submit();
+				
+				//Preguiça de fazer dinamico....
+				$("#table tbody").on('click', '.edit-clie',function(){
+					var cliente = $(this).parents("tr").attr("id");
+					$.fancybox.open({
+						href : 'cadastro.php?fancy=1&cod_cliente=' + cliente,
+						type: "iframe",
+						padding : 0,
+						fitToView	: false,
+						width		: '80%',
+						height		: '80%',
+						autoSize	: false,
+						closeClick	: false,
+						openEffect	: 'none',
+						closeEffect	: 'none',
+						afterClose : function(){
+							parent.location.reload(true);
+						},
+					}	
+					);
 				});
+				
+				$(".salvar").click(function(){
+					var fancy = $("input[name='fancy']").val();
+					$.ajax({
+						type: "POST",
+						url : $(this).attr("data-target"),
+						data: $("#form").serialize(),
+						success: function(){
+							if(fancy){
+								parent.$.fancybox.close();
+							} else {
+								window.location = "index.php";
+							}
+						}
+					});
+					
+				});
+				
+				
+			
 			});
 			
 		</script>

@@ -27,6 +27,5 @@
 	
 	$query = mysql_query($sql, $conexao);
 	  
-	header("Location: index.php");
-	
+		echo http_response_code(200);
 ?>
