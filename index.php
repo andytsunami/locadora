@@ -46,8 +46,8 @@ header('Content-Type: text/html; charset=utf-8');
 			<?php if ($registros){
 				while ($result = mysql_fetch_array($query)) {
 			?>	
-				<tr>
-					<td id='<?=$result["cod"]?>'>
+				<tr id='<?=$result["cod"]?>'>
+					<td>
 						<?=$result["cod"]?>
 					</td>
 					<td>
@@ -59,7 +59,7 @@ header('Content-Type: text/html; charset=utf-8');
 					<td>
 						<?=$result["email"]?>
 					</td>
-					<td>
+					<td class="dependentes">
 						<?=$result["dependentes"]?>
 					</td>
 				</tr>

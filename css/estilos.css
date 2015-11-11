@@ -31,6 +31,10 @@ html, body {
 	color: #FFFFFF;
 }
 
+.dependentes{
+	cursor: pointer;
+}
+
 @media (max-width: 767px) {
 	#footer {
 		margin-left: -20px;
