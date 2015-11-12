@@ -58,7 +58,7 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="nascimento">Data Nascimento</label>
 			<div class="col-sm-10">
-				<input type="datetime" value="<?=$dataNascimento?>" class="form-control input-lg" name="data_nascimento" id="nascimento"/>
+				<input type="datetime" value="<?=$dataNascimento?>" class="form-control input-lg datepicker" name="data_nascimento" id="nascimento"/>
 			</div>
 		</div>
 		<div class="form-group">

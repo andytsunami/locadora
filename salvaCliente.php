@@ -8,7 +8,7 @@
 	mysql_select_db($banco);
 	
 	$nome = htmlentities($_POST['nome'],ENT_QUOTES);
-	$dataNascimento = htmlentities($_POST['data_nascimento'],ENT_QUOTES);
+	$dataNascimento = date('Y-m-d',strtotime(str_replace('/','-',htmlentities($_POST['data_nascimento'],ENT_QUOTES))));
 	$email = htmlentities($_POST['email'],ENT_QUOTES);
 	
 	$sql = "";

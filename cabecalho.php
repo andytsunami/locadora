@@ -24,6 +24,10 @@
       	<link rel="stylesheet" href="https://dl.dropboxusercontent.com/u/35720465/locadora/fancybox/helpers/jquery.fancybox-thumbs.css" type="text/css" media="screen" />
 		<script type="text/javascript" src="https://dl.dropboxusercontent.com/u/35720465/locadora/fancybox/helpers/jquery.fancybox-thumbs.js"></script>
       			
+		<!-- Datepicker -->
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		
 		
 		<link type="text/css" rel="stylesheet" href="css/estilos.css"  media="screen,projection"/>
 		
@@ -145,9 +149,7 @@
 					});
 					
 				});
-				
-				
-			
+				$( ".datepicker" ).datepicker({ dateFormat: 'dd/mm/yy' });
 			});
 			
 		</script>
@@ -167,7 +169,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.php">
                     <img src="img/logo.png" alt="">
                 </a>
             </div>
