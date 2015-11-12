@@ -21,91 +21,97 @@ header('Content-Type: text/html; charset=utf-8');
 <?php
 	include ("cabecalho.php");
 ?>
-	<div class="page-header">
-		<h1>Listagem de clientes</h1>
+	<div class="row">
+		<div class="col-leg-12">
+			<h1 class="well text-center">Listagem de clientes</h1>
+		</div>
 	</div>
-	<table class="table table-bordered table-condensed" id="table">
-		<thead>
-			<th>
-				Cod
-			</th>
-			<th>
-				Nome
-			</th>
-			<th>
-				Data Nascimento
-			</th>
-			<th>
-				Email
-			</th>
-			<th>
-				Qtd. Dependentes
-			</th>
-			<th>
-				Add Dependente
-			</th>
-			<th>
-				Editar
-			</th>
-			<th>
-				Excluir
-			</th>
-		</thead>
-		<tbody>
-			<?php if ($registros){
-				while ($result = mysql_fetch_array($query)) {
-			?>	
-				<tr id='<?=$result["cod"]?>'>
-					<td>
-						<?=$result["cod"]?>
-					</td>
-					<td>
-						<?=$result["nome"]?>
-					</td>
-					<td>
-						<?=date('d/m/Y',strtotime($result["data_nascimento"]))?>
-					</td>
-					<td>
-						<?=$result["email"]?>
-					</td>
-					<td class="dependentes">
-						<?=$result["dependentes"]?>
-					</td>
-					<td class="add">
-						<i class="icon-plus"></i>
-					</td>
-					<td class="adm edit-clie"><i class="icon-edit"></i></td>
-					<td class="adm remove-clie"><i class="icon-remove"></i></td>
-				</tr>
-			<?php }}?>
-		</tbody>
-		<tfoot>
-			<th>
-				Cod
-			</th>
-			<th>
-				Nome
-			</th>
-			<th>
-				Data Nascimento
-			</th>
-			<th>
-				Email
-			</th>
-			<th>
-				Qtd. Dependentes
-			</th>
-			<th>
-				Add Dependente
-			</th>
-			<th>
-				Editar
-			</th>
-			<th>
-				Excluir
-			</th>
-		</tfoot>
-	</table>
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-condensed table-hover" id="table">
+				<thead>
+					<th>
+						Cod
+					</th>
+					<th>
+						Nome
+					</th>
+					<th>
+						Data Nascimento
+					</th>
+					<th>
+						Email
+					</th>
+					<th>
+						Qtd. Dependentes
+					</th>
+					<th>
+						Add Dependente
+					</th>
+					<th>
+						Editar
+					</th>
+					<th>
+						Excluir
+					</th>
+				</thead>
+				<tbody>
+					<?php if ($registros){
+						while ($result = mysql_fetch_array($query)) {
+					?>	
+						<tr id='<?=$result["cod"]?>'>
+							<td>
+								<?=$result["cod"]?>
+							</td>
+							<td>
+								<?=$result["nome"]?>
+							</td>
+							<td>
+								<?=date('d/m/Y',strtotime($result["data_nascimento"]))?>
+							</td>
+							<td>
+								<?=$result["email"]?>
+							</td>
+							<td class="dependentes">
+								<?=$result["dependentes"]?>
+							</td>
+							<td class="add">
+								<i class="glyphicon glyphicon-plus"></i>
+							</td>
+							<td class="adm edit-clie"><i class="glyphicon glyphicon-pencil"></i></td>
+							<td class="adm remove-clie"><i class="glyphicon glyphicon-remove"></i></td>
+						</tr>
+					<?php }}?>
+				</tbody>
+				<tfoot>
+					<th>
+						Cod
+					</th>
+					<th>
+						Nome
+					</th>
+					<th>
+						Data Nascimento
+					</th>
+					<th>
+						Email
+					</th>
+					<th>
+						Qtd. Dependentes
+					</th>
+					<th>
+						Add Dependente
+					</th>
+					<th>
+						Editar
+					</th>
+					<th>
+						Excluir
+					</th>
+				</tfoot>
+			</table>
+		</div>
+	</div>
 		
 <?php
 	include ("rodape.php");

@@ -2,48 +2,48 @@ html, body, table, td, th {
 	font-family: 'Ubuntu', sans-serif;
 }
 
-.navbar{
-	width: 100%;
-}
-.container {
-	width: auto;
-	max-width: 680px;
-}
-.container .credit {
-	margin: 20px 0;
-}
-html, body {
-	height: 100%;
-}
-
-#wrap {
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	margin: 0 50% 0 25%;
-}
-
-#push, #footer {
-	height: 60px;
-}
-#footer {
-	background-color: #66b2b2;
-	color: #FFFFFF;
-}
-
 .dependentes,.adm,.add{
 	cursor: pointer;
 	text-decoration: underline;
 	font-weight: bold;
-	color: blue;
 	text-align: center !important;
 }
 
-@media (max-width: 767px) {
-	#footer {
-		margin-left: -20px;
-		margin-right: -20px;
-		padding-left: 20px;
-		padding-right: 20px;
-	}
+.dependentes{
+	color: blue;
+}
+
+.corpo{
+	margin-top: 0;
+}
+
+.navbar-brand img{
+	width: 100%;
+}
+
+.navbar{
+	min-height: 107px !important;
+	position: relative !important;
+}
+
+.navbar-nav > li > a {
+    padding-top: 42px !important;
+}
+
+body .navbar-inverse {
+    background-color: #66b2b2 !important;
+    border-color: #66b2b2 !important;
+    background-image: linear-gradient(to bottom, #66b2a1 0px, #66b2b2 100%) !important;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+	font-size: 1.3em !important;
+    color: #fff !important;
+}
+
+thead {
+    background-image: linear-gradient(to bottom, #b2d8d8 0px, #b2d8d8 100%);
+    background-repeat: repeat-x;
+    border-color: #b2d8d8;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 1px 0 rgba(255, 255, 255, 0.1);
 }

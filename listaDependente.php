@@ -27,7 +27,6 @@ header('Content-Type: text/html; charset=utf-8');
 
 ?>
 <html>
-	<body>
 		<head>
 			<meta charset="UTF-8" />
 			<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700,300italic,500' rel='stylesheet' type='text/css'>	
@@ -35,17 +34,18 @@ header('Content-Type: text/html; charset=utf-8');
 			<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 			
 			
-			<!-- Globo.com Bootstrap -->
-	      	<script type="text/javascript" src="https://dl.dropboxusercontent.com/u/35720465/locadora/js/bootstrap.min.js"></script>
-			<link type="text/css" rel="stylesheet" href="https://dl.dropboxusercontent.com/u/35720465/locadora/css/bootstrap.min.css"  media="screen,projection"/>
-			<link type="text/css" rel="stylesheet" href="https://dl.dropboxusercontent.com/u/35720465/locadora/css/bootstrap-responsive.min.css"  media="screen,projection"/>
+			<!-- Bootstrap -->
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 			
 			
 			
-			<!-- Datatable -->
-	      	<script type="text/javascript" src="https://cdn.datatables.net/r/dt/dt-1.10.9/datatables.min.js"></script>
-	      	<link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/r/dt/dt-1.10.9/datatables.min.css"  media="screen,projection"/>
-	      	
+			
+	      	<!-- Datatable -->
+		    <script type="text/javascript" src="https://cdn.datatables.net/r/dt/dt-1.10.9/datatables.min.js"></script>
+		    <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/r/dt/dt-1.10.9/datatables.min.css"  media="screen,projection"/>
+		    
 	      	<!-- FancyBox -->
 			<link rel="stylesheet" href="https://dl.dropboxusercontent.com/u/35720465/locadora/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
 			<script type="text/javascript" src="https://dl.dropboxusercontent.com/u/35720465/locadora/fancybox/jquery.fancybox.pack.js"></script>
@@ -119,72 +119,81 @@ header('Content-Type: text/html; charset=utf-8');
 		</script>
 			
 		</head>
-			<div class="page-header">
-				<h1>Listagem de dependentes do cliente <?=$resultCliente["nome"]?></h1>
+		<body>
+		<div class="container corpo">
+			<div class="row">
+				<div class="col-leg-12">
+					<h1 class="well text-center">Listagem de dependentes do cliente <?=$resultCliente["nome"]?></h1>
+				</div>
 			</div>
-			<table class="table table-bordered table-condensed" id="table">
-				<thead>
-					<th>
-						Cod
-					</th>
-					<th>
-						Nome
-					</th>
-					<th>
-						Data Nascimento
-					</th>
-					<th>
-						Email
-					</th>
-					<th>
-						Editar
-					</th>
-					<th>
-						Excluir
-					</th>
-				</thead>
-				<tbody>
-					<?php if ($registros){
-						while ($result = mysql_fetch_array($query)) {
-					?>	
-						<tr id='<?=$result["cod"]?>'>
-							<td>
-								<?=$result["cod"]?>
-							</td>
-							<td>
-								<?=$result["nome"]?>
-							</td>
-							<td>
-								<?=date('d/m/Y',strtotime($result["data_nascimento"]))?>
-							</td>
-							<td>
-								<?=$result["email"]?>
-							</td>
-							<td class="adm edit-dep"><i class="icon-edit"></i></td>
-							<td class="adm remove-dep"><i class="icon-remove"></i></td>
-						</tr>
-					<?php }}?>
-				</tbody>
-				<tfoot>
-					<th>
-						Cod
-					</th>
-					<th>
-						Nome
-					</th>
-					<th>
-						Data Nascimento
-					</th>
-					<th>
-						Email
-					</th>
-					<th>
-						Editar
-					</th>
-					<th>
-						Excluir
-					</th>
-				</tfoot>
-			</table>
+			<div class="row">
+				<div class="col-md-12">
+					<table class="table table-condensed table-hover" id="table">
+						<thead>
+							<th>
+								Cod
+							</th>
+							<th>
+								Nome
+							</th>
+							<th>
+								Data Nascimento
+							</th>
+							<th>
+								Email
+							</th>
+							<th>
+								Editar
+							</th>
+							<th>
+								Excluir
+							</th>
+						</thead>
+						<tbody>
+							<?php if ($registros){
+								while ($result = mysql_fetch_array($query)) {
+							?>	
+								<tr id='<?=$result["cod"]?>'>
+									<td>
+										<?=$result["cod"]?>
+									</td>
+									<td>
+										<?=$result["nome"]?>
+									</td>
+									<td>
+										<?=date('d/m/Y',strtotime($result["data_nascimento"]))?>
+									</td>
+									<td>
+										<?=$result["email"]?>
+									</td>
+									<td class="adm edit-dep"><i class="glyphicon glyphicon-pencil"></i></td>
+									<td class="adm remove-dep"><i class="glyphicon glyphicon-remove"></i></td>
+								</tr>
+							<?php }}?>
+						</tbody>
+						<tfoot>
+							<th>
+								Cod
+							</th>
+							<th>
+								Nome
+							</th>
+							<th>
+								Data Nascimento
+							</th>
+							<th>
+								Email
+							</th>
+							<th>
+								Editar
+							</th>
+							<th>
+								Excluir
+							</th>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
