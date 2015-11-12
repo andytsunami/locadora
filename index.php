@@ -63,7 +63,7 @@ header('Content-Type: text/html; charset=utf-8');
 						<?=$result["nome"]?>
 					</td>
 					<td>
-						<?=$result["data_nascimento"]?>
+						<?=date('d/m/Y',strtotime($result["data_nascimento"]))?>
 					</td>
 					<td>
 						<?=$result["email"]?>

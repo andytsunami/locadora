@@ -83,13 +83,44 @@ header('Content-Type: text/html; charset=utf-8');
 							    }
 					    }
 				});
+				
+				$("#table tbody").on('click', '.remove-dep',function(){
+					var dep = $(this).parents("tr").attr("id");
+					var linha = $(this).parents('tr');
+					$.post("deleta.php", {cod: dep, dependente: 1}).done(function(data){
+							$(linha).fadeOut("slow",function(){
+								table.row(linha).remove().draw();
+							});
+					});
+					
+				});
+				
+				$("#table tbody").on('click', '.edit-dep',function(){
+					var dependente = $(this).parents("tr").attr("id");
+					$.fancybox.open({
+						href : 'dependente.php?fancy=1&cod=' + dependente,
+						type: "iframe",
+						padding : 0,
+						fitToView	: false,
+						width		: '80%',
+						height		: '80%',
+						autoSize	: false,
+						closeClick	: false,
+						openEffect	: 'none',
+						closeEffect	: 'none',
+						afterClose : function(){
+							location.reload(true);
+						},
+					}	
+					);
+				});
 			});
 			
 		</script>
 			
 		</head>
 			<div class="page-header">
-				<h1>Listagem de dependentes</h1>
+				<h1>Listagem de dependentes do cliente <?=$resultCliente["nome"]?></h1>
 			</div>
 			<table class="table table-bordered table-condensed" id="table">
 				<thead>
@@ -105,6 +136,12 @@ header('Content-Type: text/html; charset=utf-8');
 					<th>
 						Email
 					</th>
+					<th>
+						Editar
+					</th>
+					<th>
+						Excluir
+					</th>
 				</thead>
 				<tbody>
 					<?php if ($registros){
@@ -118,11 +155,14 @@ header('Content-Type: text/html; charset=utf-8');
 								<?=$result["nome"]?>
 							</td>
 							<td>
-								<?=$result["data_nascimento"]?>
+								<?=date('d/m/Y',strtotime($result["data_nascimento"]))?>
 							</td>
 							<td>
 								<?=$result["email"]?>
-							</tr>
+							</td>
+							<td class="adm edit-dep"><i class="icon-edit"></i></td>
+							<td class="adm remove-dep"><i class="icon-remove"></i></td>
+						</tr>
 					<?php }}?>
 				</tbody>
 				<tfoot>
@@ -137,6 +177,12 @@ header('Content-Type: text/html; charset=utf-8');
 					</th>
 					<th>
 						Email
+					</th>
+					<th>
+						Editar
+					</th>
+					<th>
+						Excluir
 					</th>
 				</tfoot>
 			</table>

@@ -135,6 +135,17 @@
 					
 				});
 				
+				$("#table tbody").on('click', '.remove-clie',function(){
+					var cli = $(this).parents("tr").attr("id");
+					var linha = $(this).parents('tr');
+					$.post("deleta.php", {cod: cli, cliente: 1}).done(function(data){
+							$(linha).fadeOut("slow",function(){
+								table.row(linha).remove().draw();
+							});
+					});
+					
+				});
+				
 				
 			
 			});
