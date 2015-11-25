@@ -7,7 +7,7 @@ mysql_select_db($banco);
 
 $sql = "select c.cod, c.nome, c.data_nascimento, c.email, count(d.cod) as dependentes from cliente c
 left join dependente d on d.cod_cliente = c.cod
-group by c.nome;";
+group by c.cod, c.nome, c.data_nascimento, c.email;";
 
 
 $query = mysql_query($sql, $conexao);
